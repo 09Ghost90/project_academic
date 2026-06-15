@@ -105,9 +105,9 @@
   .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
   .brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy);font-size:1.05rem}
   .brand .mono{
-    width:42px;height:42px;border-radius:11px;display:grid;place-items:center;
+    min-width:42px;height:42px;padding:0 12px;border-radius:11px;display:inline-flex;align-items:center;justify-content:center;
     background:var(--navy);color:var(--gold);font-family:var(--display);font-weight:600;
-    font-size:1.15rem;letter-spacing:.02em;flex-shrink:0;
+    font-size:1rem;letter-spacing:.02em;flex-shrink:0;
   }
   .brand small{display:block;font-weight:600;font-size:.7rem;letter-spacing:.16em;
     text-transform:uppercase;color:var(--gold-deep);line-height:1}
@@ -380,7 +380,7 @@
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
     <a href="#topo" class="brand" aria-label="Auxílio Acadêmico Bruno — início">
-      <span class="mono">AB</span>
+      <span class="mono">Acad B</span>
       <span><small>Auxílio Acadêmico</small><b>Bruno</b></span>
     </a>
     <nav class="links" aria-label="Navegação principal">
@@ -696,7 +696,7 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <a href="#topo" class="brand">
-          <span class="mono">AB</span>
+          <span class="mono">Acad B</span>
           <span><small>Auxílio Acadêmico</small><b>Bruno</b></span>
         </a>
         <p>Suporte acadêmico para estudantes de graduação presencial e EAD, com organização, qualidade e total discrição.</p>
