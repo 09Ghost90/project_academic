@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
+<!-- ====== GOOGLE ANALYTICS 4 ====== -->
+<!-- ID de Medição: G-SQJ2W60H4F -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SQJ2W60H4F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SQJ2W60H4F', {
+    page_title: document.title,
+    page_location: window.location.href,
+    send_page_view: true
+  });
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Auxílio Acadêmico Bruno | Suporte para Graduação, EAD e TCC</title>
@@ -9,6 +23,8 @@
 <meta name="author" content="Bruno — Auxílio Acadêmico">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0A2D5E">
+<link rel="canonical" href="https://auxilioacademicobruno.com.br/">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -741,11 +757,25 @@
   var DEFAULT_MSG = "Olá Bruno! Vim através do seu site e gostaria de receber mais informações sobre o auxílio acadêmico.";
   function waLink(msg){ return "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(msg || DEFAULT_MSG); }
 
-  // default WhatsApp links
+  // helper: dispara evento GA4 de forma segura
+  function gaEvent(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+  }
+
+  // default WhatsApp links + rastreamento de clique
   document.querySelectorAll(".js-wa").forEach(function(el){
     el.setAttribute("href", waLink());
     el.setAttribute("target","_blank");
     el.setAttribute("rel","noopener");
+    el.addEventListener("click", function(){
+      var label = el.textContent.trim() || el.getAttribute("aria-label") || "WhatsApp";
+      gaEvent("whatsapp_click", {
+        event_category: "engagement",
+        event_label: label.substring(0, 60)
+      });
+    });
   });
 
   // nav shadow on scroll
@@ -780,16 +810,40 @@
         item.classList.add("open");
         ans.style.maxHeight = ans.scrollHeight + "px";
         btn.setAttribute("aria-expanded","true");
+        // Rastrear abertura de FAQ
+        var pergunta = btn.childNodes[0] ? btn.childNodes[0].textContent.trim() : btn.textContent.trim();
+        gaEvent("faq_open", {
+          event_category: "engagement",
+          event_label: pergunta.substring(0, 100)
+        });
       }
     });
   });
 
-  // form -> whatsapp
+  // Rastrear cliques nos cartões de serviço
+  document.querySelectorAll(".card h3").forEach(function(titulo){
+    titulo.closest(".card").addEventListener("click", function(){
+      gaEvent("service_card_click", {
+        event_category: "interest",
+        event_label: titulo.textContent.trim()
+      });
+    });
+  });
+
+  // form -> whatsapp + rastreamento
   document.getElementById("formSend").addEventListener("click", function(){
     var nome = document.getElementById("nome").value.trim();
     var curso = document.getElementById("curso").value.trim();
     var tipo = document.getElementById("tipo").value;
     var msg = document.getElementById("msg").value.trim();
+    // Rastrear envio do formulário
+    gaEvent("form_submit", {
+      event_category: "lead",
+      event_label: tipo,
+      has_name: nome ? "sim" : "nao",
+      has_curso: curso ? "sim" : "nao",
+      has_msg: msg ? "sim" : "nao"
+    });
     var text = "Olá Bruno! Vim através do seu site.";
     if(nome)  text += "\n\nMeu nome é " + nome + ".";
     if(curso) text += "\nCurso/Instituição: " + curso + ".";
