@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auxílio Acadêmico Bruno | Suporte para Graduação, EAD e TCC</title>
+<meta name="description" content="Suporte acadêmico completo para estudantes de graduação presencial e EAD: atividades na plataforma (AVA), trabalhos, TCC e projetos de extensão. Entrega no prazo, atendimento rápido e discreto pelo WhatsApp.">
+<meta name="keywords" content="auxílio acadêmico, assessoria acadêmica, TCC, EAD, trabalhos acadêmicos, atividades AVA, monografia, projeto de extensão">
+<meta name="author" content="Bruno — Auxílio Acadêmico">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0A2D5E">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Auxílio Acadêmico Bruno | Suporte para Graduação, EAD e TCC">
+<meta property="og:description" content="Suporte acadêmico completo: atividades, trabalhos, TCC e projetos. Entrega no prazo e atendimento rápido pelo WhatsApp.">
+<meta property="og:locale" content="pt_BR">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#0A2D5E;
+    --navy-deep:#061d3d;
+    --navy-soft:#123a6e;
+    --gold:#C8B299;
+    --gold-deep:#a9885f;
+    --gold-line:#d9c6ad;
+    --cream:#f6f1e9;
+    --cream-soft:#fbf8f3;
+    --white:#ffffff;
+    --ink:#1b2433;
+    --muted:#5b6473;
+    --shadow-sm:0 4px 18px rgba(10,45,94,.08);
+    --shadow-md:0 18px 50px rgba(10,45,94,.13);
+    --radius:18px;
+    --max:1180px;
+    --display:"Fraunces",Georgia,serif;
+    --body:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.65;
+    font-size:17px;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:var(--display);line-height:1.12;font-weight:600;color:var(--navy);letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  ::selection{background:var(--gold);color:var(--navy-deep)}
+
+  .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 24px}
+
+  /* eyebrow label — signature gold rule motif */
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:12px;
+    font-family:var(--body);font-weight:700;font-size:.74rem;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);
+    margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1.5px;background:var(--gold-deep);display:inline-block}
+  .center .eyebrow::after{content:"";width:34px;height:1.5px;background:var(--gold-deep);display:inline-block}
+  .center{text-align:center}
+  .center .eyebrow{justify-content:center}
+
+  .section{padding:96px 0}
+  .section h2{font-size:clamp(1.9rem,4vw,2.9rem);max-width:18ch}
+  .center h2{margin-inline:auto}
+  .lead{color:var(--muted);font-size:1.06rem;max-width:54ch}
+  .center .lead{margin-inline:auto}
+
+  /* buttons */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    font-family:var(--body);font-weight:700;font-size:1rem;
+    padding:15px 28px;border-radius:60px;cursor:pointer;border:none;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:#1faa54;color:#fff;box-shadow:0 10px 26px rgba(31,170,84,.32)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(31,170,84,.42);background:#1c9d4d}
+  .btn-gold{background:var(--gold);color:var(--navy-deep)}
+  .btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(200,178,153,.5);background:#d3bfa4}
+  .btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--gold-line)}
+  .btn-outline:hover{transform:translateY(-3px);border-color:var(--gold);background:var(--cream-soft)}
+  .btn-ghost-light{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.28)}
+  .btn-ghost-light:hover{background:rgba(255,255,255,.16);transform:translateY(-3px)}
+  .wa-ico{width:20px;height:20px;flex-shrink:0}
+
+  /* ===== NAV ===== */
+  header.nav{
+    position:sticky;top:0;z-index:60;
+    background:rgba(255,255,255,.86);backdrop-filter:blur(14px);
+    border-bottom:1px solid #eee6d9;transition:box-shadow .3s ease;
+  }
+  header.nav.scrolled{box-shadow:0 6px 24px rgba(10,45,94,.07)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy);font-size:1.05rem}
+  .brand .mono{
+    width:42px;height:42px;border-radius:11px;display:grid;place-items:center;
+    background:var(--navy);color:var(--gold);font-family:var(--display);font-weight:600;
+    font-size:1.15rem;letter-spacing:.02em;flex-shrink:0;
+  }
+  .brand small{display:block;font-weight:600;font-size:.7rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold-deep);line-height:1}
+  .brand b{font-family:var(--display);font-weight:600;font-size:1.12rem;letter-spacing:-.01em}
+  nav.links{display:flex;align-items:center;gap:30px}
+  nav.links a{font-weight:600;font-size:.95rem;color:var(--navy);position:relative;padding:4px 0}
+  nav.links a::after{content:"";position:absolute;left:0;bottom:-2px;height:1.5px;width:0;background:var(--gold-deep);transition:width .28s ease}
+  nav.links a:hover::after{width:100%}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;width:44px;height:44px;color:var(--navy)}
+  .menu-btn svg{width:26px;height:26px}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;background:var(--navy);color:#fff;overflow:hidden;
+    padding:88px 0 100px;
+  }
+  .hero::before{ /* subtle academic grid */
+    content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+    background-image:radial-gradient(circle at 1px 1px, rgba(200,178,153,.16) 1px, transparent 0);
+    background-size:38px 38px;
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 78%);
+            mask-image:linear-gradient(180deg,#000 0%,transparent 78%);
+  }
+  .hero::after{ /* warm glow */
+    content:"";position:absolute;top:-180px;right:-160px;width:560px;height:560px;border-radius:50%;
+    background:radial-gradient(circle, rgba(200,178,153,.22), transparent 65%);pointer-events:none;
+  }
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center}
+  .hero h1{color:#fff;font-size:clamp(2.5rem,5.3vw,4.2rem);font-weight:600;letter-spacing:-.02em}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero .sub{color:rgba(255,255,255,.82);font-size:1.13rem;max-width:46ch;margin:26px 0 36px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:16px}
+  .hero-eyebrow{color:var(--gold)}
+  .hero-eyebrow::before{background:var(--gold)}
+  .trust{display:flex;flex-wrap:wrap;gap:26px;margin-top:42px;padding-top:30px;border-top:1px solid rgba(255,255,255,.14)}
+  .trust .ti{display:flex;flex-direction:column;gap:2px}
+  .trust .ti b{font-family:var(--display);font-size:1.7rem;color:var(--gold);font-weight:600;line-height:1}
+  .trust .ti span{font-size:.82rem;color:rgba(255,255,255,.7);letter-spacing:.02em}
+
+  /* hero portrait */
+  .portrait-wrap{position:relative}
+  .portrait{
+    position:relative;border-radius:24px;overflow:hidden;
+    aspect-ratio:4/5;background:linear-gradient(160deg,#10396f,#0a2851);
+    border:1px solid rgba(200,178,153,.35);box-shadow:0 30px 70px rgba(0,0,0,.4);
+  }
+  .portrait img{width:100%;height:100%;object-fit:cover}
+  .portrait .placeholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:30px}
+  .portrait .placeholder svg{width:120px;height:120px;color:rgba(200,178,153,.55)}
+  .gold-frame{position:absolute;inset:14px;border:1px solid rgba(200,178,153,.4);border-radius:16px;pointer-events:none}
+  .badge{
+    position:absolute;background:#fff;color:var(--navy);border-radius:14px;
+    padding:13px 16px;box-shadow:var(--shadow-md);display:flex;align-items:center;gap:11px;
+    font-weight:700;font-size:.9rem;
+  }
+  .badge .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;flex-shrink:0;
+    background:var(--cream);color:var(--gold-deep)}
+  .badge .ic svg{width:20px;height:20px}
+  .badge small{display:block;font-weight:600;font-size:.72rem;color:var(--muted);letter-spacing:.02em}
+  .badge.b1{top:26px;left:-26px;animation:float 5s ease-in-out infinite}
+  .badge.b2{bottom:30px;right:-22px;animation:float 5s ease-in-out infinite .8s}
+  .badge .stars{color:#e8b53d;letter-spacing:1px;font-size:.95rem}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+  /* ===== SOBRE ===== */
+  .sobre{background:var(--cream-soft)}
+  .sobre-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+  .sobre-card{
+    position:relative;background:var(--navy);border-radius:24px;padding:42px;color:#fff;
+    box-shadow:var(--shadow-md);overflow:hidden;
+  }
+  .sobre-card::after{content:"";position:absolute;bottom:-70px;left:-70px;width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(200,178,153,.2),transparent 70%)}
+  .sobre-card .qmark{font-family:var(--display);font-size:5rem;line-height:.7;color:var(--gold);opacity:.7}
+  .sobre-card h3{color:#fff;font-size:1.45rem;margin:14px 0 16px}
+  .sobre-card p{color:rgba(255,255,255,.82);font-size:.98rem;margin-bottom:14px}
+  .sobre-card .sign{margin-top:26px;display:flex;align-items:center;gap:14px;position:relative;z-index:2}
+  .sobre-card .sign .av{width:48px;height:48px;border-radius:50%;background:var(--gold);color:var(--navy-deep);
+    display:grid;place-items:center;font-family:var(--display);font-weight:600;font-size:1.2rem}
+  .sobre-card .sign b{display:block;font-family:var(--display);font-size:1.05rem}
+  .sobre-card .sign span{font-size:.8rem;color:var(--gold);letter-spacing:.04em}
+  .sobre-text p{color:var(--muted);margin-bottom:18px;font-size:1.05rem}
+  .sobre-text p strong{color:var(--ink)}
+  .sobre-points{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+  .sobre-points li{list-style:none;display:flex;align-items:center;gap:11px;font-weight:600;font-size:.95rem;color:var(--navy)}
+  .sobre-points li .chk{width:24px;height:24px;border-radius:50%;background:var(--cream);color:var(--gold-deep);
+    display:grid;place-items:center;flex-shrink:0}
+  .sobre-points li .chk svg{width:14px;height:14px}
+
+  /* ===== SERVIÇOS ===== */
+  .grid-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
+  .card{
+    background:#fff;border:1px solid #eee6d9;border-radius:var(--radius);padding:34px 30px;
+    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;position:relative;overflow:hidden;
+  }
+  .card::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:var(--gold);
+    transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+  .card:hover{transform:translateY(-7px);box-shadow:var(--shadow-md);border-color:var(--gold-line)}
+  .card:hover::before{transform:scaleX(1)}
+  .card .ic-box{
+    width:60px;height:60px;border-radius:15px;background:var(--cream);display:grid;place-items:center;
+    margin-bottom:22px;color:var(--navy);transition:background .3s ease,color .3s ease;
+  }
+  .card:hover .ic-box{background:var(--navy);color:var(--gold)}
+  .card .ic-box svg{width:30px;height:30px}
+  .card h3{font-size:1.22rem;margin-bottom:12px}
+  .card p{color:var(--muted);font-size:.97rem}
+
+  /* ===== DIFERENCIAIS ===== */
+  .diff{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+  .diff::before{content:"";position:absolute;inset:0;opacity:.6;
+    background-image:radial-gradient(circle at 1px 1px, rgba(200,178,153,.12) 1px, transparent 0);background-size:40px 40px}
+  .diff .wrap{position:relative;z-index:2}
+  .diff h2{color:#fff}
+  .diff .eyebrow{color:var(--gold)}
+  .diff .eyebrow::before,.diff.center .eyebrow::after{background:var(--gold)}
+  .diff .lead{color:rgba(255,255,255,.78)}
+  .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+  .diff-card{
+    background:rgba(255,255,255,.05);border:1px solid rgba(200,178,153,.2);border-radius:16px;padding:30px 26px;
+    transition:background .3s ease,transform .3s ease,border-color .3s ease;
+  }
+  .diff-card:hover{background:rgba(255,255,255,.09);transform:translateY(-5px);border-color:rgba(200,178,153,.45)}
+  .diff-card .dic{width:52px;height:52px;border-radius:13px;background:rgba(200,178,153,.16);color:var(--gold);
+    display:grid;place-items:center;margin-bottom:18px}
+  .diff-card .dic svg{width:26px;height:26px}
+  .diff-card h3{color:#fff;font-size:1.12rem;margin-bottom:8px}
+  .diff-card p{color:rgba(255,255,255,.72);font-size:.92rem}
+
+  /* ===== COMO FUNCIONA ===== */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:58px;position:relative}
+  .step{position:relative;padding-top:8px}
+  .step .num{
+    font-family:var(--display);font-size:2.6rem;font-weight:600;color:var(--gold);line-height:1;
+    display:flex;align-items:baseline;gap:4px;margin-bottom:18px;
+  }
+  .step .num::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--navy);
+    display:inline-block;margin-right:4px}
+  .step h3{font-size:1.12rem;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:.95rem}
+  .step:not(:last-child)::after{
+    content:"";position:absolute;top:24px;left:calc(50% + 30px);right:calc(-50% + 30px);height:1.5px;
+    background:repeating-linear-gradient(90deg,var(--gold-line) 0 7px,transparent 7px 14px);
+  }
+
+  /* ===== DEPOIMENTOS ===== */
+  .depo{background:var(--cream-soft)}
+  .depo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:54px}
+  .depo-card{background:#fff;border:1px solid #eee6d9;border-radius:var(--radius);padding:34px 30px;
+    box-shadow:var(--shadow-sm);position:relative}
+  .depo-card .stars{color:#e8b53d;letter-spacing:2px;font-size:1.05rem;margin-bottom:16px}
+  .depo-card blockquote{font-family:var(--display);font-size:1.18rem;color:var(--navy);line-height:1.5;
+    font-weight:500;margin-bottom:20px}
+  .depo-card .who{display:flex;align-items:center;gap:12px}
+  .depo-card .who .av{width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:.95rem}
+  .depo-card .who b{font-size:.92rem;color:var(--navy)}
+  .depo-card .who span{display:block;font-size:.8rem;color:var(--muted)}
+
+  /* ===== FAQ ===== */
+  .faq-list{max-width:780px;margin:50px auto 0;display:flex;flex-direction:column;gap:14px}
+  .faq-item{border:1px solid #eee6d9;border-radius:14px;background:#fff;overflow:hidden;transition:border-color .3s ease}
+  .faq-item.open{border-color:var(--gold-line);box-shadow:var(--shadow-sm)}
+  .faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:22px 26px;
+    display:flex;align-items:center;justify-content:space-between;gap:18px;font-family:var(--body);
+    font-weight:700;font-size:1.05rem;color:var(--navy)}
+  .faq-q .pl{width:30px;height:30px;border-radius:50%;background:var(--cream);color:var(--gold-deep);flex-shrink:0;
+    display:grid;place-items:center;transition:transform .3s ease,background .3s ease,color .3s ease}
+  .faq-item.open .faq-q .pl{transform:rotate(45deg);background:var(--navy);color:var(--gold)}
+  .faq-q .pl svg{width:16px;height:16px}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .faq-a p{padding:0 26px 24px;color:var(--muted);font-size:1rem}
+
+  /* ===== CTA + FORM ===== */
+  .final{background:linear-gradient(155deg,var(--navy),var(--navy-deep));color:#fff;position:relative;overflow:hidden}
+  .final::after{content:"";position:absolute;top:-120px;left:-100px;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(200,178,153,.18),transparent 70%)}
+  .final-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .final h2{color:#fff;font-size:clamp(2rem,4vw,3rem)}
+  .final .eyebrow{color:var(--gold)}
+  .final .eyebrow::before{background:var(--gold)}
+  .final p.lead{color:rgba(255,255,255,.82);margin-bottom:32px}
+  .final .perks{list-style:none;display:flex;flex-direction:column;gap:13px;margin-top:8px}
+  .final .perks li{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.9);font-weight:500}
+  .final .perks li svg{width:20px;height:20px;color:var(--gold);flex-shrink:0}
+  .form-card{background:#fff;border-radius:24px;padding:38px;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+  .form-card h3{font-size:1.4rem;margin-bottom:6px}
+  .form-card .fsub{color:var(--muted);font-size:.95rem;margin-bottom:24px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-weight:700;font-size:.82rem;color:var(--navy);margin-bottom:7px;letter-spacing:.01em}
+  .field input,.field select,.field textarea{
+    width:100%;padding:13px 15px;border:1.5px solid #e4ddd0;border-radius:11px;font-family:var(--body);
+    font-size:.98rem;color:var(--ink);background:var(--cream-soft);transition:border-color .25s ease,background .25s ease;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:#fff}
+  .field textarea{resize:vertical;min-height:90px}
+  .form-card .btn-primary{width:100%;margin-top:6px}
+  .form-note{text-align:center;font-size:.8rem;color:var(--muted);margin-top:14px}
+
+  /* ===== FOOTER ===== */
+  footer.site{background:var(--navy-deep);color:rgba(255,255,255,.75);padding:64px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:46px;padding-bottom:42px;
+    border-bottom:1px solid rgba(255,255,255,.1)}
+  .foot-brand .brand .mono{background:var(--gold);color:var(--navy-deep)}
+  .foot-brand .brand b,.foot-brand .brand{color:#fff}
+  .foot-brand p{margin-top:18px;font-size:.95rem;max-width:34ch;color:rgba(255,255,255,.6)}
+  footer.site h4{color:#fff;font-family:var(--body);font-weight:700;font-size:.8rem;letter-spacing:.14em;
+    text-transform:uppercase;margin-bottom:18px}
+  footer.site ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+  footer.site ul a,footer.site ul li{font-size:.95rem;color:rgba(255,255,255,.66);display:flex;align-items:center;gap:10px}
+  footer.site ul a:hover{color:var(--gold)}
+  footer.site ul svg{width:17px;height:17px;color:var(--gold);flex-shrink:0}
+  .foot-bottom{padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+    font-size:.85rem;color:rgba(255,255,255,.5)}
+
+  /* ===== FLOAT WHATSAPP ===== */
+  .wa-float{position:fixed;bottom:26px;right:26px;z-index:90;width:62px;height:62px;border-radius:50%;
+    background:#1faa54;display:grid;place-items:center;box-shadow:0 12px 30px rgba(31,170,84,.45);
+    transition:transform .3s ease}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:32px;height:32px;color:#fff}
+  .wa-float::before{content:"";position:absolute;inset:0;border-radius:50%;background:#1faa54;z-index:-1;
+    animation:pulse 2.4s ease-out infinite}
+  @keyframes pulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.9);opacity:0}}
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:980px){
+    .hero-grid,.sobre-grid,.final-grid{grid-template-columns:1fr;gap:46px}
+    .portrait-wrap{max-width:380px;margin:0 auto}
+    .grid-cards,.diff-grid,.depo-grid{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr;gap:34px 24px}
+    .step:not(:last-child)::after{display:none}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:680px){
+    body{font-size:16px}
+    .section{padding:70px 0}
+    .wrap{padding:0 20px}
+    nav.links,.nav-cta .btn{display:none}
+    .menu-btn{display:grid;place-items:center}
+    .grid-cards,.diff-grid,.depo-grid,.steps,.sobre-points,.foot-grid{grid-template-columns:1fr}
+    .hero{padding:56px 0 70px}
+    .badge.b1{left:-12px;top:14px}.badge.b2{right:-10px}
+    .sobre-card,.form-card{padding:30px}
+    .trust{gap:22px}
+    .wa-float{width:56px;height:56px;bottom:18px;right:18px}
+    /* mobile menu panel */
+    .mobile-panel.show{display:flex}
+  }
+  .mobile-panel{display:none;flex-direction:column;gap:4px;padding:14px 20px 22px;background:#fff;
+    border-bottom:1px solid #eee6d9}
+  .mobile-panel a{padding:13px 4px;font-weight:600;color:var(--navy);border-bottom:1px solid #f3ede2}
+  .mobile-panel .btn{margin-top:14px}
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+  :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#topo" class="brand" aria-label="Auxílio Acadêmico Bruno — início">
+      <span class="mono">AB</span>
+      <span><small>Auxílio Acadêmico</small><b>Bruno</b></span>
+    </a>
+    <nav class="links" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#" class="btn btn-primary js-wa">
+        <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.13h-.01c-1.52 0-3.01-.41-4.31-1.18l-.31-.18-3.2.84.85-3.12-.2-.32a8.21 8.21 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.25 8.23z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#diferenciais">Diferenciais</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#faq">Dúvidas</a>
+    <a href="#" class="btn btn-primary js-wa">Chamar no WhatsApp</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="topo">
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <span class="eyebrow hero-eyebrow">Graduação · EAD · TCC</span>
+      <h1>Auxílio acadêmico para sua <em>graduação e EAD</em></h1>
+      <p class="sub">Suporte completo para estudantes que buscam organização, qualidade e entregas sempre dentro do prazo.</p>
+      <div class="hero-cta">
+        <a href="#" class="btn btn-primary js-wa">
+          <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.46 12.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
+          Chamar no WhatsApp
+        </a>
+        <a href="#contato" class="btn btn-ghost-light">Solicitar orçamento</a>
+      </div>
+      <div class="trust">
+        <div class="ti"><b>100%</b><span>Atendimento online</span></div>
+        <div class="ti"><b>Rápido</b><span>Retorno pelo WhatsApp</span></div>
+        <div class="ti"><b>Discreto</b><span>Privado e seguro</span></div>
+      </div>
+    </div>
+
+    <div class="reveal portrait-wrap">
+      <div class="portrait">
+        <img src="img_1.png" alt="Bruno, responsável pelo Auxílio Acadêmico">
+        <div class="gold-frame"></div>
+      </div>
+      <div class="badge b1">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span>Entrega no prazo<small>Compromisso com seu cronograma</small></span>
+      </div>
+      <div class="badge b2">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.7-5.1 4.6 1.4 6.8L12 17.6 5.9 20.4l1.4-6.8L2.2 9l6.9-.7z"/></svg></span>
+        <span><span class="stars">★★★★★</span><small>Alunos satisfeitos</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOBRE ============ -->
+<section class="section sobre" id="sobre">
+  <div class="wrap sobre-grid">
+    <div class="reveal sobre-card">
+      <div class="qmark">"</div>
+      <h3>Quem é Bruno?</h3>
+      <p>Estudante de Engenharia de Computação que transformou a rotina acadêmica em método: organização, prazos e qualidade em cada entrega.</p>
+      <p>Atendimento direto, sem intermediários e com total discrição.</p>
+      <div class="sign">
+        <span class="av">B</span>
+        <span><b>Bruno</b><span>Auxílio Acadêmico</span></span>
+      </div>
+    </div>
+    <div class="reveal sobre-text">
+      <span class="eyebrow">Sobre mim</span>
+      <h2>Apoio acadêmico com responsabilidade e foco no resultado</h2>
+      <p>Olá! Sou Bruno, estudante de Engenharia de Computação, e atuo oferecendo <strong>suporte acadêmico para estudantes de diversas áreas</strong>.</p>
+      <p>Meu objetivo é auxiliar alunos que precisam de apoio na organização e no desenvolvimento de atividades acadêmicas, sempre com responsabilidade, comprometimento e qualidade.</p>
+      <p>Trabalho com discrição, comunicação rápida e foco na satisfação de cada cliente.</p>
+      <ul class="sobre-points">
+        <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Comunicação rápida</li>
+        <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Atendimento discreto</li>
+        <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Foco na qualidade</li>
+        <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Compromisso com prazos</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVIÇOS ============ -->
+<section class="section center" id="servicos">
+  <div class="wrap">
+    <span class="eyebrow">Serviços</span>
+    <h2>Como posso te ajudar</h2>
+    <p class="lead">Apoio sob medida para cada etapa da sua vida acadêmica, da atividade da plataforma à entrega final do TCC.</p>
+    <div class="grid-cards" style="text-align:left">
+      <div class="reveal card">
+        <div class="ic-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <h3>Atividades na plataforma (AVA)</h3>
+        <p>Realização e acompanhamento de atividades diretamente na plataforma da instituição.</p>
+      </div>
+      <div class="reveal card">
+        <div class="ic-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+        <h3>Trabalhos acadêmicos</h3>
+        <p>Desenvolvimento de atividades, pesquisas, relatórios, resenhas e estudos dirigidos.</p>
+      </div>
+      <div class="reveal card">
+        <div class="ic-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <h3>Elaboração de TCC</h3>
+        <p>Auxílio desde a escolha do tema até a finalização do trabalho, conforme as normas acadêmicas.</p>
+      </div>
+      <div class="reveal card">
+        <div class="ic-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Atividades curriculares</h3>
+        <p>Questionários, exercícios, fichamentos, resumos e outras demandas acadêmicas.</p>
+      </div>
+      <div class="reveal card">
+        <div class="ic-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Projetos e atividades de extensão</h3>
+        <p>Produção de relatórios, projetos e documentação para atividades extensionistas.</p>
+      </div>
+      <div class="reveal card" style="background:var(--navy);border-color:var(--navy)">
+        <div class="ic-box" style="background:rgba(200,178,153,.15);color:var(--gold)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg></div>
+        <h3 style="color:#fff">Não encontrou sua demanda?</h3>
+        <p style="color:rgba(255,255,255,.75)">Cada caso é avaliado individualmente. Me chame no WhatsApp e conte o que você precisa.</p>
+        <a href="#" class="js-wa" style="display:inline-flex;margin-top:16px;color:var(--gold);font-weight:700;font-size:.95rem">Falar agora →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIAIS ============ -->
+<section class="section diff center" id="diferenciais">
+  <div class="wrap">
+    <span class="eyebrow">Diferenciais</span>
+    <h2 style="margin-inline:auto">Por que escolher o Auxílio Acadêmico?</h2>
+    <p class="lead">Mais do que entregar uma atividade, ofereço um acompanhamento de confiança do início ao fim.</p>
+    <div class="diff-grid" style="text-align:left">
+      <div class="reveal diff-card">
+        <div class="dic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Entrega no prazo</h3><p>Compromisso real com datas e cronogramas acadêmicos.</p>
+      </div>
+      <div class="reveal diff-card">
+        <div class="dic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg></div>
+        <h3>Atendimento rápido</h3><p>Retorno ágil e direto pelo WhatsApp.</p>
+      </div>
+      <div class="reveal diff-card">
+        <div class="dic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <h3>Qualidade acadêmica</h3><p>Materiais organizados, bem estruturados e revisados.</p>
+      </div>
+      <div class="reveal diff-card">
+        <div class="dic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Discrição</h3><p>Atendimento privado, sigiloso e seguro.</p>
+      </div>
+      <div class="reveal diff-card">
+        <div class="dic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11l-3 3-1.5-1.5"/></svg></div>
+        <h3>Suporte personalizado</h3><p>Cada demanda recebe atenção individual e dedicada.</p>
+      </div>
+      <div class="reveal diff-card">
+        <div class="dic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Compromisso e ética</h3><p>Relacionamento transparente e honesto com o cliente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section class="section center" id="como-funciona">
+  <div class="wrap">
+    <span class="eyebrow">Passo a passo</span>
+    <h2>Como funciona</h2>
+    <p class="lead">Um processo simples e transparente, do primeiro contato à entrega final.</p>
+    <div class="steps" style="text-align:left">
+      <div class="reveal step">
+        <div class="num">01</div>
+        <h3>Entre em contato</h3>
+        <p>Chame pelo WhatsApp para iniciarmos a conversa.</p>
+      </div>
+      <div class="reveal step">
+        <div class="num">02</div>
+        <h3>Explique sua necessidade</h3>
+        <p>Conte qual é a atividade, o curso e o prazo desejado.</p>
+      </div>
+      <div class="reveal step">
+        <div class="num">03</div>
+        <h3>Receba um orçamento</h3>
+        <p>Você recebe um valor justo, sem compromisso.</p>
+      </div>
+      <div class="reveal step">
+        <div class="num">04</div>
+        <h3>Acompanhe a entrega</h3>
+        <p>Acompanhamento do início até a entrega final.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="section depo center">
+  <div class="wrap">
+    <span class="eyebrow">Depoimentos</span>
+    <h2>O que dizem os alunos</h2>
+    <p class="lead">A confiança de quem já contou com o apoio para concluir suas atividades.</p>
+    <div class="depo-grid" style="text-align:left">
+      <div class="reveal depo-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Excelente atendimento, entregou tudo dentro do prazo."</blockquote>
+        <div class="who"><span class="av">M</span><span><b>Mariana S.</b><span>Aluna de EAD</span></span></div>
+      </div>
+      <div class="reveal depo-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Me ajudou durante todo o semestre, recomendo demais."</blockquote>
+        <div class="who"><span class="av">R</span><span><b>Rafael L.</b><span>Graduação presencial</span></span></div>
+      </div>
+      <div class="reveal depo-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Profissional muito atencioso e comprometido do início ao fim."</blockquote>
+        <div class="who"><span class="av">C</span><span><b>Camila T.</b><span>Concluinte de TCC</span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section center" id="faq" style="background:var(--cream-soft)">
+  <div class="wrap">
+    <span class="eyebrow">Dúvidas frequentes</span>
+    <h2>Perguntas e respostas</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Vocês atendem qualquer curso?<span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a"><p>Sim. Avaliamos cada demanda individualmente para entender o curso, o tipo de atividade e oferecer o melhor suporte possível.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">O atendimento é online?<span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a"><p>Sim, todo o processo pode ser realizado online, do primeiro contato até a entrega final.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Como recebo meu material?<span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a"><p>Via WhatsApp, e-mail ou diretamente pela plataforma da sua instituição, conforme combinarmos.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Qual o prazo de entrega?<span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a"><p>Depende da complexidade da atividade. Combinamos um prazo realista logo no orçamento, respeitando sempre a sua data limite.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL + FORMULÁRIO ============ -->
+<section class="section final" id="contato">
+  <div class="wrap final-grid">
+    <div class="reveal">
+      <span class="eyebrow">Vamos começar</span>
+      <h2>Precisa de ajuda com suas atividades acadêmicas?</h2>
+      <p class="lead">Entre em contato agora mesmo e receba um orçamento sem compromisso.</p>
+      <ul class="perks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Orçamento gratuito e sem compromisso</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Resposta rápida pelo WhatsApp</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Atendimento 100% discreto</li>
+      </ul>
+      <a href="#" class="btn btn-gold js-wa" style="margin-top:32px">
+        <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+
+    <div class="reveal form-card">
+      <h3>Solicitar orçamento</h3>
+      <p class="fsub">Preencha os campos e envie direto para o WhatsApp do Bruno.</p>
+      <div class="field">
+        <label for="nome">Seu nome</label>
+        <input type="text" id="nome" placeholder="Como posso te chamar?">
+      </div>
+      <div class="field">
+        <label for="curso">Curso / Instituição</label>
+        <input type="text" id="curso" placeholder="Ex.: Administração — EAD">
+      </div>
+      <div class="field">
+        <label for="tipo">Tipo de demanda</label>
+        <select id="tipo">
+          <option value="Atividade na plataforma (AVA)">Atividade na plataforma (AVA)</option>
+          <option value="Trabalho acadêmico">Trabalho acadêmico</option>
+          <option value="Elaboração de TCC">Elaboração de TCC</option>
+          <option value="Atividade curricular">Atividade curricular</option>
+          <option value="Projeto de extensão">Projeto de extensão</option>
+          <option value="Outro">Outro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="msg">Detalhes (opcional)</label>
+        <textarea id="msg" placeholder="Conte um pouco sobre a atividade e o prazo..."></textarea>
+      </div>
+      <button class="btn btn-primary" id="formSend">
+        <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+        Enviar pelo WhatsApp
+      </button>
+      <p class="form-note">Ao enviar, você será direcionado ao WhatsApp com a mensagem já preenchida.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#topo" class="brand">
+          <span class="mono">AB</span>
+          <span><small>Auxílio Acadêmico</small><b>Bruno</b></span>
+        </a>
+        <p>Suporte acadêmico para estudantes de graduação presencial e EAD, com organização, qualidade e total discrição.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+          <li><a href="#como-funciona">Como funciona</a></li>
+          <li><a href="#faq">Dúvidas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="#" class="js-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>(34) 99335-0642</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>Atendimento online</li>
+          <li><a href="https://instagram.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Auxílio Acadêmico Bruno. Todos os direitos reservados.</span>
+      <span>Feito para apoiar a sua jornada acadêmica.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOAT WHATSAPP ============ -->
+<a href="#" class="wa-float js-wa" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.46 12.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
+</a>
+
+<script>
+(function(){
+  "use strict";
+  var PHONE = "5534993350642";
+  var DEFAULT_MSG = "Olá Bruno! Vim através do seu site e gostaria de receber mais informações sobre o auxílio acadêmico.";
+  function waLink(msg){ return "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(msg || DEFAULT_MSG); }
+
+  // default WhatsApp links
+  document.querySelectorAll(".js-wa").forEach(function(el){
+    el.setAttribute("href", waLink());
+    el.setAttribute("target","_blank");
+    el.setAttribute("rel","noopener");
+  });
+
+  // nav shadow on scroll
+  var nav = document.getElementById("nav");
+  window.addEventListener("scroll", function(){
+    nav.classList.toggle("scrolled", window.scrollY > 12);
+  }, {passive:true});
+
+  // mobile menu
+  var menuBtn = document.getElementById("menuBtn");
+  var panel = document.getElementById("mobilePanel");
+  menuBtn.addEventListener("click", function(){
+    var open = panel.classList.toggle("show");
+    menuBtn.setAttribute("aria-expanded", open ? "true":"false");
+  });
+  panel.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){ panel.classList.remove("show"); menuBtn.setAttribute("aria-expanded","false"); });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll(".faq-item").forEach(function(item){
+    var btn = item.querySelector(".faq-q");
+    var ans = item.querySelector(".faq-a");
+    btn.addEventListener("click", function(){
+      var isOpen = item.classList.contains("open");
+      document.querySelectorAll(".faq-item").forEach(function(i){
+        i.classList.remove("open");
+        i.querySelector(".faq-a").style.maxHeight = null;
+        i.querySelector(".faq-q").setAttribute("aria-expanded","false");
+      });
+      if(!isOpen){
+        item.classList.add("open");
+        ans.style.maxHeight = ans.scrollHeight + "px";
+        btn.setAttribute("aria-expanded","true");
+      }
+    });
+  });
+
+  // form -> whatsapp
+  document.getElementById("formSend").addEventListener("click", function(){
+    var nome = document.getElementById("nome").value.trim();
+    var curso = document.getElementById("curso").value.trim();
+    var tipo = document.getElementById("tipo").value;
+    var msg = document.getElementById("msg").value.trim();
+    var text = "Olá Bruno! Vim através do seu site.";
+    if(nome)  text += "\n\nMeu nome é " + nome + ".";
+    if(curso) text += "\nCurso/Instituição: " + curso + ".";
+    text += "\nPreciso de ajuda com: " + tipo + ".";
+    if(msg)   text += "\nDetalhes: " + msg;
+    text += "\n\nGostaria de receber um orçamento, por favor.";
+    window.open(waLink(text), "_blank", "noopener");
+  });
+
+  // scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, {threshold:0.12});
+  document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
