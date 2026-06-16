@@ -26,6 +26,37 @@
 <link rel="canonical" href="https://auxilioacademicobruno.com.br/">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
+<!-- ====== SEGURANÇA (Security Headers via meta) ====== -->
+<!-- Política de Referência: só envia origem em requisições cross-origin seguras -->
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<!-- Content Security Policy: define quais origens podem carregar recursos -->
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src  'self' 'unsafe-inline'
+              https://www.googletagmanager.com
+              https://www.google-analytics.com
+              https://ssl.google-analytics.com;
+  style-src   'self' 'unsafe-inline'
+              https://fonts.googleapis.com;
+  font-src    'self'
+              https://fonts.gstatic.com;
+  img-src     'self' data:
+              https://www.google-analytics.com
+              https://www.googletagmanager.com;
+  connect-src 'self'
+              https://www.google-analytics.com
+              https://analytics.google.com
+              https://region1.google-analytics.com
+              https://region1.analytics.google.com;
+  frame-src   'none';
+  frame-ancestors 'none';
+  base-uri    'self';
+  form-action 'self' https://wa.me;
+  object-src  'none';
+  upgrade-insecure-requests;
+">
+
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Auxílio Acadêmico Bruno | Suporte para Graduação, EAD e TCC">
@@ -734,7 +765,7 @@
         <ul>
           <li><a href="#" class="js-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>(34) 99335-0642</a></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>Atendimento online</li>
-          <li><a href="https://instagram.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>Instagram</a></li>
+          <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>Instagram</a></li>
         </ul>
       </div>
     </div>
