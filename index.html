@@ -2,6 +2,13 @@
 <html lang="pt-BR">
 <head>
 
+<!-- ====== FORÇAR HTTPS ====== -->
+<script>
+  if (location.hostname !== 'localhost' && location.protocol !== 'https:') {
+    location.replace('https://' + location.hostname + location.pathname + location.search);
+  }
+</script>
+
 <!-- ====== GOOGLE ANALYTICS 4 ====== -->
 <!-- ID de Medição: G-SQJ2W60H4F -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SQJ2W60H4F"></script>
