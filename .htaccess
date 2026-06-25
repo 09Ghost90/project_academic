@@ -1,0 +1,33 @@
+# ====== HEADERS DE SEGURANÇA ======
+<IfModule mod_headers.c>
+  # Impedir que o site seja carregado em iframes (proteção contra clickjacking)
+  Header always set X-Frame-Options "DENY"
+
+  # Impedir que o navegador interprete arquivos de forma errada
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Forçar sempre HTTPS (HSTS)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Desativar funcionalidades do navegador não utilizadas
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+  # Política de referência
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ====== COMPRESSÃO GZIP ======
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# ====== CACHE DE RECURSOS ESTÁTICOS ======
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
